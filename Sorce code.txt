@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CometChat Docked Layout</title>
+    <script src="https://widget-js.cometchat.io/v3/cometchatwidget.js"></script>
+</head>
+<body>
+
+<script>
+    CometChatWidget.init({
+        "appID": "2664610420b9caad",
+        "appRegion": "IN",
+        "authKey": "2a8dd6387ebbad910b89a7837c71fd83cfbd998c"
+    }).then(response => {
+        console.log("Initialization successful");
+
+        CometChatWidget.login({
+            "uid": "cometchat-uid-2"
+        }).then(response => {
+            console.log("Login successful");
+
+            CometChatWidget.launch({
+                "widgetID": "f5b63d31-d923-478a-832c-d64b34591e6e",
+                "docked": "true",
+                "alignment": "right",
+                "height": "600px",
+                "width": "400px"
+            });
+        }, error => {
+            console.log("Login failed with error:", error);
+        });
+    }, error => {
+        console.log("Initialization failed with error:", error);
+    });
+</script>
+
+</body>
+</html>
